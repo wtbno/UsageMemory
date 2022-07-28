@@ -1,6 +1,8 @@
 const os = require("os");
-
+const log = require("./logger");
+//Exemplo de loop nodejs
 setInterval(() => {
+  //Desestruturação
   const { freemem, totalmem } = os;
 
   const total = parseInt(totalmem() / 1024 / 1024);
@@ -13,9 +15,9 @@ setInterval(() => {
     usage: `${percents}%`,
   };
 
-  console.clear()
+  console.clear();
   console.log("<===USE MEMORY===>");
   console.table(stats);
-}, 1000);
 
-//Desestruturação
+  log(`${JSON.stringify(stats)}\n`);
+}, 1000);
